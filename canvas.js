@@ -19,3 +19,44 @@ var konteks = canvas.getContext('2d');
 
 // //  Arc / Circle
 // konteks.arc();
+
+var x = 0;
+var tambahX = 5;
+var l = 50; 
+var t = 50;
+var y = 0;
+
+function animateHorizontal() {
+
+    requestAnimationFrame(animateHorizontal);
+
+    konteks.clearRect(0, 0, innerWidth, innerHeight);
+    konteks.fillStyle = 'blue'
+    konteks.fillRect(x, 300, l, t);
+
+
+    // pengkonndisian x
+    if( x + l  > innerWidth || x + l < 0) {
+        tambahX = - tambahX
+    }
+
+x += tambahX;
+}
+
+// function animateVertical() {
+
+//     requestAnimationFrame(animateVertical);
+
+//     konteks.clearRect(0, 0, innerWidth, innerHeight);
+//     konteks.fillStyle = 'blue';
+//     konteks.fillRect(600, y, 50, 50);
+
+//     // pengkondisian y
+//     if(y > innerHeight || y < 0) {
+//         tambahY = -tambahY
+//     }
+
+// y += tambahY;
+// }
+
+animateHorizontal();
